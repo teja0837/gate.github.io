@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        #results { display: none; }
+    </style>
+</head>
+<body>
+    <div id="login" class="container">
+        <h2>Login</h2>
+        <input type="text" id="userId" placeholder="Enter Login ID" required><br><br>
+        <input type="password" id="password" placeholder="Enter Password" required><br><br>
+        <button onclick="authenticate()">Login</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <div id="results" class="container">
+        <h2>Results Page</h2>
+        <p>Your results will be displayed here.</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function authenticate() {
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+            if (userId === "kyasaswini253@gmail.com" && password === "Yashu@123098") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+            } else {
+                document.getElementById('error').textContent = "Invalid credentials!";
+            }
+        }
+        function logout() {
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('error').textContent = "";
+        }
+    </script>
+</body>
+</html>
